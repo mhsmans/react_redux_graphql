@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 // Connects component to redux store.
 import { connect } from "react-redux";
 import { fetchData } from "../actions/graphql_client_actions";
+
+import './Data.css';
 
 class Data extends Component {
   componentWillMount() {
@@ -10,18 +12,26 @@ class Data extends Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log(this.props.data);
+    const items = this.props.data.map(item => (
+      <div key={item.attributes.nid}>
+        <hr />
+        <h3>{item.attributes.title}</h3>
+        <p>HP: {item.attributes.field_hp}</p>
+      </div>
+    ));
     return (
-      <div>
-        <h1>Data</h1>
+      <div className="pokemon-container">
+        <h1>Pokemons</h1>
+        {items}
       </div>
     );
   }
 }
 
-Data.PropTypes = {
-  fetchData: PropTypes.func.isRequired,
-  data: PropTypes.array.isRequired
+Data.propTypes = {
+  fetchData: propTypes.func.isRequired,
+  data: propTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({

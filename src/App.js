@@ -4,27 +4,18 @@ import "./App.css";
 
 // Provider takes the store, which holds the application state tree.
 import { Provider } from "react-redux";
-import store from './store';
+import store from "./store";
+
+import Data from "./components/Data";
 
 class App extends Component {
   render() {
     return (
       <Provider store={store}>
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-              Edit <code>src/App.js</code> and save to reload.
-            </p>
-            <a
-              className="App-link"
-              href="https://reactjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn React
-            </a>
-          </header>
+          <div>
+            <Data />
+          </div>
         </div>
       </Provider>
     );
