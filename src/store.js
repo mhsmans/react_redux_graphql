@@ -6,12 +6,11 @@ const initialState = {};
 const middleware = [thunk];
 
 // Create the application store.
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMOPSE__ || compose;
 const store = createStore(
   rootReducer,
   initialState,
-  compose(
-    applyMiddleware(...middleware)
-  )
+  composeEnhancers(applyMiddleware(...middleware))
 );
 
 export default store;

@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import dataReducer from './data_reducer';
+import jsonApiDataReducer from './json_data_reducer';
+import graphqlDataReducer from './graphql_data_reducer';
 
 // Root reducer. 
 export default combineReducers({
     // Other reducers. 
-    data: dataReducer
+    jsonData: jsonApiDataReducer,
+    graphqlData: graphqlDataReducer
 });
