@@ -1,5 +1,4 @@
 import { LOG_IN_CORE_REST } from "./types";
-import axios from "axios";
 
 export function login(name, pass) {
   const data = {
@@ -13,15 +12,13 @@ export function login(name, pass) {
     .join("&");
 
   return function(dispatch) {
-    axios({
-      method: "POST",
-      url: "http://drupalql.local/user/login",
-      headers: {
-        // withCredentials: true, // Is dit nodig????
-        // crossdomain: true,
-        "Content-Type": "application/x-www-form-urlencoded"
-      },
-      data: formBody
+    fetch('http://drupalql.local/user/login', {
+      method: 'POST',
+      credentials: 'include', // This is needed to store cookie in browser cookie storage. This is not visible on all browsers.
+      headers: new Headers({
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }),
+      body: formBody
     })
       .then(res => {
         dispatch({
@@ -34,3 +31,4 @@ export function login(name, pass) {
       });
   };
 }
+

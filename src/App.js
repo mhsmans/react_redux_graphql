@@ -7,7 +7,8 @@ import store from "./store";
 
 // import JsonApiData from "./components/Json_api_data";
 import GraphqlData from "./components/Graphql_data";
-import CoreRestLogin from "./components/core_rest_login";
+import CoreRestLogin from "./components/Core_rest_login";
+import CoreRestPostForm from "./components/Core_rest_post_form";
 
 class App extends Component {
   render() {
@@ -20,6 +21,8 @@ class App extends Component {
           <GraphqlData />
           <hr />
           <CoreRestLogin />
+          <hr />
+          <CoreRestPostForm />
         </div>
       </Provider>
     );
