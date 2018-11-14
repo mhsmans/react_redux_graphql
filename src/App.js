@@ -5,8 +5,9 @@ import "./App.css";
 import { Provider } from "react-redux";
 import store from "./store";
 
-import JsonApiData from "./components/Json_api_data";
+// import JsonApiData from "./components/Json_api_data";
 import GraphqlData from "./components/Graphql_data";
+import CoreRestLogin from "./components/core_rest_login";
 
 class App extends Component {
   render() {
@@ -14,9 +15,11 @@ class App extends Component {
       // "Provide" the redux application state store to child components. 
       <Provider store={store}>
         <div className="App">
-          <JsonApiData />
+          {/* <JsonApiData /> */}
           <hr />
           <GraphqlData />
+          <hr />
+          <CoreRestLogin />
         </div>
       </Provider>
     );

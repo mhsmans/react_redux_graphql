@@ -32,6 +32,8 @@ class Data extends Component {
             <p>{type.Typename.name}</p>
           </div>
         ))}
+        <p>Image:</p>
+        <img src={item.Image.url} alt="" className="pokemon-image"></img>
       </div>
     ));
     return (

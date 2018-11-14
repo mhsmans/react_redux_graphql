@@ -46,6 +46,9 @@ export const query = gql`
               }
             }
           }
+          Image: fieldImage {
+            url
+          }
         }
       }
     }

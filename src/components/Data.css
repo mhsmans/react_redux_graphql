@@ -1,6 +1,12 @@
 .pokemon-container {
     margin: 0 auto;
-    width: 50%;
-    max-height: 500px;
+    width: 25%;
+    max-height: 300px;
     overflow: scroll;
+}
+
+.pokemon-image {
+    max-width: 100px;
+    max-height: 100px;
+    object-fit: cover;
 }
