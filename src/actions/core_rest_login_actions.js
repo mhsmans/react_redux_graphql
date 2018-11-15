@@ -23,7 +23,7 @@ export function login(name, pass) {
       .then(res => {
         dispatch({
           type: LOG_IN_CORE_REST,
-          payload: res
+          payload: res 
         });
       })
       .catch(err => {

@@ -12,6 +12,7 @@ class CoreRestLogin extends Component {
       pass: ""
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
 
   handleSubmit(e) {
@@ -34,9 +35,7 @@ class CoreRestLogin extends Component {
             type="text"
             name="name"
             value={this.state.name}
-            onChange={e => {
-              this.handleInputChange(e);
-            }}
+            onChange={this.handleInputChange}
           />
         </label>
         <label>
@@ -45,9 +44,7 @@ class CoreRestLogin extends Component {
             type="password"
             name="pass"
             value={this.state.pass}
-            onChange={e => {
-              this.handleInputChange(e);
-            }}
+            onChange={this.handleInputChange}
           />
         </label>
         <button type="submit">Log In</button>
@@ -63,7 +60,7 @@ CoreRestLogin.propTypes = {
 
 // Get state en pass it to props.
 const mapStateToProps = state => ({
-  cookie: state.coreRestCookie.cookie
+  cookie: state.coreRestCookie
 });
 
 // Connect component to redux store.

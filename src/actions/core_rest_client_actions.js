@@ -1,6 +1,5 @@
 import { POST_DATA_CORE_REST } from "./types";
 
-
 export function post(name) {
   const data = {
     name: [

@@ -6,7 +6,7 @@ const initialState = {};
 const middleware = [thunk];
 
 // Create the application store.
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMOPSE__ || compose;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
   rootReducer,
   initialState,
@@ -14,3 +14,4 @@ const store = createStore(
 );
 
 export default store;
+
