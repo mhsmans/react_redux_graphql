@@ -1,6 +1,6 @@
 import { POST_DATA_CORE_REST } from "./types";
 
-export function post(name) {
+export function post(name, csrfToken) {
   const data = {
     name: [
       {
@@ -19,11 +19,11 @@ export function post(name) {
       method: "POST",
       credentials: 'include',
       headers: new Headers({
-        withCredentials: true,
         "Content-Type": "application/json",
-        Accept: "application/json"
+        "Accept": "application/json",
+        "X-Csrf-Token": csrfToken
       }),
-      body: data
+      body: JSON.stringify(data)
     })
       .then(res => {
         dispatch({

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import propTypes from "prop-types";
 // Connects component to redux store.
 import { connect } from "react-redux";
-import { login } from "../actions/core_rest_login_actions";
+import { login, getCsrfToken } from "../actions/core_rest_login_actions";
 
 class CoreRestLogin extends Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class CoreRestLogin extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.getCsrfToken();
     this.props.login(this.state.name, this.state.pass);
   }
 
@@ -55,16 +56,17 @@ class CoreRestLogin extends Component {
 
 CoreRestLogin.propTypes = {
   login: propTypes.func.isRequired,
-  cookie: propTypes.object.isRequired
+  cookie: propTypes.object.isRequired,
+  csrfToken: propTypes.string.isRequired
 };
 
 // Get state en pass it to props.
 const mapStateToProps = state => ({
-  cookie: state.coreRestCookie
+  cookie: state.coreRestLoginData
 });
 
 // Connect component to redux store.
 export default connect(
   mapStateToProps,
-  { login }
+  { login, getCsrfToken }
 )(CoreRestLogin);

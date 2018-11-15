@@ -8,5 +8,5 @@ export default combineReducers({
     // Other reducers. 
     jsonData: jsonApiDataReducer,
     graphqlData: graphqlDataReducer,
-    coreRestCookie: coreRestLoginReducer
+    coreRestLoginData: coreRestLoginReducer
 });

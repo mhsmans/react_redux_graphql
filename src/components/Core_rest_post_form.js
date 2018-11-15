@@ -15,7 +15,7 @@ class CoreRestPostForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.post(this.state.name);
+    this.props.post(this.state.name, this.props.csrfToken);
   }
 
   handleInputChange(e) {
@@ -52,7 +52,8 @@ CoreRestPostForm.propTypes = {
   
   // Get state en pass it to props.
   const mapStateToProps = state => ({
-    data: state.data
+    data: state.data,
+    csrfToken: state.coreRestLoginData.csrfToken
   });
   
   // Connect component to redux store.

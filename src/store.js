@@ -6,7 +6,9 @@ const initialState = {};
 const middleware = [thunk];
 
 // Create the application store.
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = 
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || // Does not work on firefox with devtools extension installed. 
+  compose;
 const store = createStore(
   rootReducer,
   initialState,
